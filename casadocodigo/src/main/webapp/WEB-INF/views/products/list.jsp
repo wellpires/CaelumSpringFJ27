@@ -17,6 +17,7 @@ table, td, th {
 </style>
 </head>
 <body>
+	${msg}
 	<table>
 		<tr>
 			<th>Título</th>

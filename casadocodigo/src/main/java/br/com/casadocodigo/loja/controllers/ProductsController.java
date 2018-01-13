@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.casadocodigo.loja.daos.ProductDAO;
 import br.com.casadocodigo.loja.models.BookType;
@@ -38,9 +39,11 @@ public class ProductsController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	@Transactional
-	public String save(Product product){
+	public ModelAndView save(Product product, RedirectAttributes attrs){
 		productDAO.save(product);
-		return "products/ok";
+		attrs.addFlashAttribute("msg", "Produto salvo com sucesso!");
+		ModelAndView modelAndView = new ModelAndView("redirect:products");
+		return modelAndView;
 	}
 	
 	
