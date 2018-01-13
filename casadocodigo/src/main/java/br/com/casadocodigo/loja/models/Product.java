@@ -9,6 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Product {
@@ -16,10 +21,15 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id = null;
-	private String title = null;
 	
+	@NotBlank
+	private String title = null;
+
+	@NotNull
 	@Lob
 	private String description = null;
+	
+	@Min(30) @Max(5000)
 	private Integer numberOfPages = null;
 
 	@ElementCollection
