@@ -28,7 +28,7 @@ public class ProductsController {
 	private ProductDAO productDAO = null;
 	
 	@RequestMapping(value="form", method= RequestMethod.GET)
-	public ModelAndView form(){
+	public ModelAndView form(Product product){
 		ModelAndView modelAndView = new ModelAndView("products/form");
 		modelAndView.addObject("types", BookType.values());
 		return modelAndView;
@@ -47,7 +47,7 @@ public class ProductsController {
 	@Transactional
 	public ModelAndView save(@Valid Product product, BindingResult bindingResult ,RedirectAttributes attrs){
 		if (bindingResult.hasErrors()) {
-			return form();
+			return form(product);
 		}
 		productDAO.save(product);
 		attrs.addFlashAttribute("msg", "Produto salvo com sucesso!");

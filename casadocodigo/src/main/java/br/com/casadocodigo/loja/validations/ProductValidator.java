@@ -18,7 +18,7 @@ public class ProductValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "field.required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "field.required");
 		Product product = (Product) target;
-		if(product.getNumberOfPages() == 0){
+		if(product.getNumberOfPages() == null || product.getNumberOfPages() == 0){
 			errors.rejectValue("numberOfPages", "field.required");
 		}
 		
