@@ -15,9 +15,19 @@ table, td, th {
 	border: 1px solid black;
 }
 </style>
+<script>
+
+window.onload = function(){
+	var message = document.getElementById('message').value;
+	
+	if(message !== null && message !== undefined && message !== ''){
+		alert(message);
+	}
+};
+</script>
 </head>
 <body>
-	${msg}
+	<input type="hidden" value="${msg}" id="message">
 	<table>
 		<tr>
 			<th>Título</th>
