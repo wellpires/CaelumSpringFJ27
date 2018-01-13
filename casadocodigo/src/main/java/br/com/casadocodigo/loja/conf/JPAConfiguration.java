@@ -53,7 +53,7 @@ public class JPAConfiguration {
 	
 	private Properties additionalProperties() {
 		Properties props = new Properties();
-		props.setProperty("hibernate.hbm2ddl.auto", "update");
+		props.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		props.setProperty("hibernate.show_sql", "true");
 		props.setProperty("org.hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		return props;
