@@ -16,14 +16,13 @@ table, td, th {
 }
 </style>
 <script>
+	window.onload = function() {
+		var message = document.getElementById('message').value;
 
-window.onload = function(){
-	var message = document.getElementById('message').value;
-	
-	if(message !== null && message !== undefined && message !== ''){
-		alert(message);
-	}
-};
+		if (message !== null && message !== undefined && message !== '') {
+			alert(message);
+		}
+	};
 </script>
 </head>
 <body>
@@ -42,6 +41,8 @@ window.onload = function(){
 				<td><c:forEach items="${product.prices}" var="price">
 						${price.bookType}: ${price.value}
 					</c:forEach></td>
+				<td><c:url value="/products/${product.id}" var="linkDetalhar" />
+					<a href="${linkDetalhar}">Detalhar</a></td>
 			</tr>
 		</c:forEach>
 	</table>
