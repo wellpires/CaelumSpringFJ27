@@ -40,6 +40,8 @@ public class Product {
 	@DateTimeFormat
 	private Calendar releaseDate = null;
 	
+	private String summaryPath = null;
+	
 	public Long getId() {
 		return id;
 	}
@@ -86,6 +88,14 @@ public class Product {
 
 	public void setReleaseDate(Calendar releaseDate) {
 		this.releaseDate = releaseDate;
+	}
+
+	public String getSummaryPath() {
+		return summaryPath;
+	}
+
+	public void setSummaryPath(String summaryPath) {
+		this.summaryPath = summaryPath;
 	}
 
 	@Override

@@ -10,7 +10,7 @@
 <title>Cadastro de livro</title>
 </head>
 <body>
-	<form:form action="${spring:mvcUrl('PC#save').build()}" method="POST" commandName="product">
+	<form:form action="${spring:mvcUrl('PC#save').build()}" method="POST" commandName="product" enctype="multipart/form-data">
 		<div>
 			<label for="title">Título</label>
 			<form:input path="title" id="title" />
@@ -43,6 +43,12 @@
 			<label for="releaseDate">Data de lançamento</label>
 			<form:input type="text" path="releaseDate" id="releaseDate"/>
 			<form:errors path="releaseDate" />
+		</div>
+
+		<div>
+			<label for="summary">Sumário do livro</label>
+			<input type="file" name="summary" id="summary"/>
+			<form:errors path="summaryPath" />
 		</div>
 
 		<div>
