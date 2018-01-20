@@ -40,6 +40,12 @@
 		</div>
 
 		<div>
+			<label for="releaseDate">Data de lançamento</label>
+			<form:input type="text" path="releaseDate" id="releaseDate"/>
+			<form:errors path="releaseDate" />
+		</div>
+
+		<div>
 			<input type="submit" value="Enviar">
 		</div>
 	</form:form >
