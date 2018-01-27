@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -38,6 +39,7 @@ public class ProductsController {
 	}
 	
 	@RequestMapping(method= RequestMethod.GET)
+	@Cacheable(value="lastProduct")
 	public ModelAndView list(){
 		List<Product> products = productDAO.list();
 		ModelAndView modelAndView = new ModelAndView("products/list");
