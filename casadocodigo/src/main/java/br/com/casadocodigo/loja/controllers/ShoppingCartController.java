@@ -48,6 +48,7 @@ public class ShoppingCartController {
 			
 			try{
 				String response = restTemplate.postForObject(uriToPay, new PaymentData(total), String.class);
+				shoppingCart.getList().clear();
 				System.out.println(response);
 				return "redirect:/products";
 			}catch(HttpClientErrorException exception){
