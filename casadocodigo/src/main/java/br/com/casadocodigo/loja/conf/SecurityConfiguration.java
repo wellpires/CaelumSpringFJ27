@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebMvcSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -23,7 +24,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
 		.antMatchers("/products/**").permitAll()
 		.anyRequest().authenticated()
-		.and().formLogin();
+		.and()
+		.formLogin().loginPage("/login")
+		.defaultSuccessUrl("/products")
+		.permitAll()
+		.and()
+		.logout()
+		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		.logoutSuccessUrl("/login")
+		.permitAll()
+		.and()
+		.exceptionHandling()
+		.accessDeniedPage("/WEB-INF/views/errors/403.jsp");
 	}
 	
 	@Override
