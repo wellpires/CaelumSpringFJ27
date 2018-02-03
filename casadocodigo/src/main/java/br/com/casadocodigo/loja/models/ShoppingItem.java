@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 
 public class ShoppingItem implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1200207632230513950L;
 	private Product product;
 	private BookType bookType;
 	private Long productId;
