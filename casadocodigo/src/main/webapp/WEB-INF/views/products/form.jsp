@@ -10,7 +10,8 @@
 <title>Cadastro de livro</title>
 </head>
 <body>
-	<form:form action="${spring:mvcUrl('PC#save').build()}" method="POST" commandName="product" enctype="multipart/form-data">
+	<form:form action="${spring:mvcUrl('PC#save').build()}" method="POST"
+		commandName="product" enctype="multipart/form-data">
 		<div>
 			<label for="title">Título</label>
 			<form:input path="title" id="title" />
@@ -19,41 +20,43 @@
 
 		<div>
 			<label for="description">Descrição</label>
-			<form:textarea rows="10" cols="20" path="description" id="description"/>
+			<form:textarea rows="10" cols="20" path="description"
+				id="description" />
 			<form:errors path="description" />
 		</div>
 
 		<div>
 			<label for="numberOfPages">Número de páginas</label>
-			<form:input type="text" path="numberOfPages" id="numberOfPages"/>
+			<form:input type="text" path="numberOfPages" id="numberOfPages" />
 			<form:errors path="numberOfPages" />
 		</div>
 
 		<div>
 			<c:forEach items="${types}" var="bookType" varStatus="status">
 				<div>
-					<label for="price_${bookType}">${bookType}</label>
-					<input type="text" name="prices[${status.index}].value" id="price_${bookType}">
-					<input type="hidden" name="prices[${status.index}].bookType" value="${bookType}">
+					<label for="price_${bookType}">${bookType}</label> <input
+						type="text" name="prices[${status.index}].value"
+						id="price_${bookType}"> <input type="hidden"
+						name="prices[${status.index}].bookType" value="${bookType}">
 				</div>
 			</c:forEach>
 		</div>
 
 		<div>
 			<label for="releaseDate">Data de lançamento</label>
-			<form:input type="text" path="releaseDate" id="releaseDate"/>
+			<form:input type="text" path="releaseDate" id="releaseDate" />
 			<form:errors path="releaseDate" />
 		</div>
 
 		<div>
-			<label for="summary">Sumário do livro</label>
-			<input type="file" name="summary" id="summary"/>
+			<label for="summary">Sumário do livro</label> <input type="file"
+				name="summary" id="summary" />
 			<form:errors path="summaryPath" />
 		</div>
 
 		<div>
 			<input type="submit" value="Enviar">
 		</div>
-	</form:form >
+	</form:form>
 </body>
 </html>
