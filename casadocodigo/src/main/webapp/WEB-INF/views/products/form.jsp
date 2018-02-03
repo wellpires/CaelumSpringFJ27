@@ -7,7 +7,7 @@
 	prefix="sec"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="cdc"%>
 
-<cdc:page title="Cadastro de livro">
+<cdc:page title="Cadastro de livros - CDC">
 	<sec:authorize access="isAuthenticated()">
 		<sec:authentication property="principal" var="user" />
 		<div>Olá ${user.name}</div>
