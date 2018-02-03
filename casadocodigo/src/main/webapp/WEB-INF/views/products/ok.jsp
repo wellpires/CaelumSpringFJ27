@@ -1,10 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<%@taglib uri="/WEB-INF/tags" prefix="cdc"%>
+<%@taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
+<%@taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="cdc"%>
+
+<cdc:page title="Cadastro de livros">
+	<sec:authorize access="isAuthenticated()">
+		<sec:authentication property="principal" var="user" />
+		<div>Olá ${user.name}</div>
+	</sec:authorize>
+	<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cadastro de livros</title>
-</head>
-<body>
+	</head>
 	<p>Produto cadastrado com sucesso!</p>
-</body>
-</html>
+</cdc:page>
