@@ -36,17 +36,6 @@ table, td, th {
 	};
 </script>
 	</head>
-<<<<<<< HEAD
-	<sec:authorize access="hasRole('ROLE_ADMIN')">
-		<c:url value="/products/form" var="formLink" />
-		<a href="${formLink}"> Cadastrar novo produto </a>
-
-	</sec:authorize>
-	</head>
-=======
->>>>>>> refs/remotes/origin/backup_branche
-
-	<input type="hidden" value="${msg}" id="message">
 	<table>
 		<tr>
 			<th>Título</th>
